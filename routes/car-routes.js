@@ -33,5 +33,11 @@ router.put("/:id", (req, res) => {
         .catch(err => res.status(500).json({ error: "It was right the first time."}))
 })
 
+router.delete("/:id", (req, res) => {
+    db("cars").where({ id: req.params.id }).delete()
+        .then(car => res.status(200).json(car))
+        .catch(err => res.status(500).json({ error: "This was the best car you ever had!!!"}))
+})
+
 
 module.exports = router;
