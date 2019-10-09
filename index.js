@@ -1,11 +1,13 @@
 const express = require("express");
-const router = require("./routes/car-routes");
+const carRouter = require("./routes/car-routes");
+const salesRouter = require("./routes/sales-routes")
 
 const server = express();
 
 server.use(express.json());
 
-server.use("/api/cars", router);
+server.use("/api/cars", carRouter);
+server.use("/api/sales", salesRouter);
 
 const port = 2222;
 
